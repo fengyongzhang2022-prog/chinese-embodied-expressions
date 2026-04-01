@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中文里的身体密码 · 20个具身表达完全指南</title>
+<style>
+/* ── ANIMATIONS ── */
+@keyframes cardIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ── RESET & TOKENS ── */
+:root{
+  --bg:#f7f5f1; --surface:#fff; --ink:#1a1e2e; --muted:#64748b;
+  --line:rgba(26,30,46,.1); --r:20px; --r-sm:12px;
+  --sh-sm:0 1px 4px rgba(26,30,46,.07);
+  --sh-md:0 6px 24px rgba(26,30,46,.1);
+  --sh-lg:0 18px 56px rgba(26,30,46,.13);
+  /* domain colours */
+  --d1:#b91c1c; --d1l:#fef2f2;
+  --d2:#b45309; --d2l:#fffbeb;
+  --d3:#047857; --d3l:#ecfdf5;
+  --d4:#6d28d9; --d4l:#f5f3ff;
+  --d5:#0369a1; --d5l:#f0f9ff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",-apple-system,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Noto Serif SC","PingFang SC",serif}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* ── LAYOUT ── */
+.wrap{width:min(1160px,calc(100vw - 36px));margin:0 auto}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(140deg,#09151f 0%,#0f2233 35%,#143040 65%,#1b4258 100%);
+  color:#fff; padding:72px 24px 78px; text-align:center; position:relative; overflow:hidden;
+}
+.hero .wrap{max-width:760px}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(100,200,220,.09),transparent);
+  pointer-events:none;
+}
+.hero-tag{
+  display:inline-block;padding:6px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);
+  font-size:12px;letter-spacing:.06em;font-weight:500;color:rgba(255,255,255,.75);
+  margin-bottom:18px;
+}
+.hero h1{
+  font-size:clamp(36px,5.8vw,58px);font-weight:800;line-height:1.08;
+  letter-spacing:-.02em;margin-bottom:14px;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(120deg,#7dd3fc,#a5b4fc 50%,#f9a8d4);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{
+  max-width:600px;margin:0 auto 28px;color:rgba(255,255,255,.82);
+  font-size:clamp(15px,1.9vw,18px);line-height:1.72;
+}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-h{
+  padding:13px 28px;border-radius:999px;font-size:15px;font-weight:700;
+  font-family:inherit;cursor:pointer;border:none;transition:.18s all;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-h:hover{transform:translateY(-2px)}
+.btn-h:focus-visible,
+.cat-pill:focus-visible,
+.tool-btn:focus-visible,
+.tts-inline:focus-visible,
+.more-ex-btn:focus-visible,
+.fc-btn:focus-visible,
+.qz-opt:focus-visible,
+.qz-next:focus-visible,
+.qz-restart:focus-visible{
+  outline:2px solid #2563eb;
+  outline-offset:2px;
+}
+.btn-h.pri{background:#fff;color:#09151f}
+.btn-h.pri:hover{background:#e0f2fe}
+.btn-h.ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.btn-h.ghost:hover{background:rgba(255,255,255,.17)}
+
+/* ── STICKY NAV ── */
+.snav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(247,245,241,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);padding:16px 0;
+}
+.snav-inner{
+  max-width:1120px;margin:0 auto;
+  padding:0 24px;
+  display:flex;flex-direction:column;gap:14px;
+}
+.snav-top{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.snav-search{
+  width:100%;max-width:320px;
+  height:40px;padding:0 16px;border-radius:999px;
+  border:1px solid var(--line);background:#fff;
+  font:inherit;font-size:14px;color:var(--ink);outline:none;
+}
+.snav-search:focus{border-color:#94a3b8}
+.snav-cats{
+  display:flex;gap:10px;overflow-x:auto;
+  padding-bottom:4px;margin:0 -24px;
+  padding-left:24px;padding-right:24px;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+.snav-cats::-webkit-scrollbar{display:none}
+.cat-pill{
+  flex-shrink:0;
+  height:36px;padding:0 16px;border-radius:999px;border:1px solid rgba(26,30,46,.08);
+  background:#fff;color:var(--ink);font-size:13px;font-family:inherit;
+  cursor:pointer;transition:.18s all;display:flex;align-items:center;gap:6px;
+  box-shadow:none;
+}
+.cat-cn{font-size:13px;font-weight:600;letter-spacing:.01em}
+.cat-en{font-size:11px;color:#64748b;font-weight:500}
+.cat-pill:hover{border-color:#cbd5e1;background:#fcfcfb}
+.cat-pill.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cat-pill.active .cat-en{color:rgba(255,255,255,.75)}
+.snav-tools{display:flex;gap:8px}
+.tool-btn{
+  height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line);
+  background:#fff;color:var(--muted);font-size:13px;font-family:inherit;
+  cursor:pointer;transition:.15s all;font-weight:500;white-space:nowrap;
+}
+.tool-btn:hover{color:var(--ink);border-color:#94a3b8}
+.tool-btn.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+
+/* ── MAIN CONTENT ── */
+.main{padding:48px 24px 0}
+
+/* Domain header */
+.domain-hd{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:24px;padding-bottom:14px;
+  border-bottom:1px solid var(--line);
+}
+.domain-icon{
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;
+}
+.domain-hd h2{font-size:20px;font-weight:700;line-height:1.25}
+.domain-hd p{font-size:13px;color:var(--muted);margin-top:2px}
+.domain-section{margin-bottom:64px}
+
+/* Cards grid */
+.cards-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media(max-width:980px){.cards-grid{grid-template-columns:1fr}}
+
+/* Card */
+.card{
+  background:var(--surface);border-radius:var(--r);
+  border:1px solid rgba(26,30,46,.08);box-shadow:0 4px 18px rgba(15,23,42,.04);
+  overflow:hidden;transition:.22s box-shadow,.22s transform;
+  display:flex;flex-direction:column;
+  animation:cardIn .42s ease both;
+}
+.card:hover{box-shadow:0 12px 28px rgba(15,23,42,.08);transform:translateY(-2px)}
+.card-accent{height:4px;background:var(--cc)}
+.card-body{padding:22px 22px 18px;flex:1;display:flex;flex-direction:column;gap:0}
+
+/* Card top row */
+.card-top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.card-domain-tag{
+  font-size:11px;font-weight:600;letter-spacing:.02em;
+  color:var(--cc);background:var(--ccl);padding:3px 10px;border-radius:999px;
+}
+.card-num{font-size:11px;font-weight:600;color:var(--muted)}
+
+/* Word row */
+.word-row{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:12px}
+/* font-size set per-card via JS based on char count */
+.word{font-size:46px;font-weight:900;line-height:1;color:var(--cc);letter-spacing:.04em;transition:.15s color}
+.word-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.pinyin{font-size:15px;color:#475569;font-style:normal;line-height:1.45;display:flex;align-items:center;gap:8px;margin-top:6px}
+.literal{font-size:12px;color:var(--muted);background:rgba(0,0,0,.04);padding:4px 10px;border-radius:6px;display:inline-block;margin-top:4px}
+.section-label{display:block;font-size:10px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#94a3b8;margin-bottom:4px}
+.inline-audio{display:inline-flex;align-items:center;gap:6px}
+.tts-inline{
+  width:26px;height:26px;border-radius:999px;border:1px solid var(--line);
+  background:#fff;color:var(--muted);font-size:12px;font-family:inherit;
+  cursor:pointer;transition:.15s all;display:inline-flex;align-items:center;justify-content:center;
+  vertical-align:middle;flex-shrink:0;
+}
+.tts-inline:hover{background:var(--ccl);border-color:var(--cc);color:var(--cc)}
+
+/* Story block */
+.story{
+  margin:0 0 14px;padding:12px 14px;
+  background:#fffbf0;border-radius:10px;
+  font-size:13.5px;color:#78350f;line-height:1.6;
+}
+.story-lbl{display:block;font-size:10px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#b45309;margin-bottom:4px}
+.story-en{font-size:12px;color:#9a5a17;margin-top:4px;line-height:1.55}
+
+/* Examples */
+.examples{margin-bottom:14px}
+.ex-lbl{display:block;font-size:10px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.ex-item{display:flex;gap:9px;align-items:flex-start;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.05)}
+.ex-item:last-child{border-bottom:none}
+.more-ex-btn{margin-top:6px;padding:0;border:none;background:transparent;color:var(--cc);font:inherit;font-size:12.5px;font-weight:700;cursor:pointer}
+.more-ex-btn:hover{text-decoration:underline}
+.watchout{margin-bottom:12px;padding:12px 14px;border-radius:12px;background:#fff7ed}
+.watchout .cx-lbl{color:#c2410c;margin-bottom:4px;font-size:11px;letter-spacing:0;font-weight:600}
+.watchout .cx-text{color:#9a3412}
+.watch-cn{font-size:13.5px;line-height:1.65;color:#9a3412;font-weight:700}
+.watch-en{font-size:12.5px;line-height:1.55;color:#7c2d12;margin-top:7px;padding-top:7px;border-top:1px dashed rgba(124,45,18,.16)}
+.collapsed-extra{display:none}
+.ex-dot{
+  width:20px;height:20px;border-radius:50%;background:var(--cc);
+  color:#fff;font-size:10px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;
+}
+.ex-zh{font-size:14.5px;font-weight:600;color:var(--ink);line-height:1.5}
+.ex-zh .kw{color:var(--cc);font-weight:800}
+.ex-py{font-size:14px;color:#475569;margin-top:2px;line-height:1.45;font-style:normal;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ex-en{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5}
+.en-hidden .ex-en{display:none}
+.en-hidden .story-en,
+.en-hidden .meaning-en,
+.en-hidden .cx-sub,
+.en-hidden .tip-text-en{display:none}
+
+/* Contrast */
+.contrast{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+.cx{padding:11px 13px;border-radius:10px;font-size:12.5px;line-height:1.5}
+.cx-lbl{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.cx-cn{background:#f0fdf4}.cx-cn .cx-lbl{color:#15803d}.cx-cn .cx-text{color:#166534}
+.cx-en{background:#fef3c7}.cx-en .cx-lbl{color:#b45309}.cx-en .cx-text{color:#92400e}
+.cx-sub{display:block;font-size:12px;line-height:1.45;color:#475569;margin-top:4px}
+.practice-on .contrast,.practice-on .tip-row{display:none!important}
+.practice-on .reveal-hint{display:flex!important}
+.practice-on .card.revealed .contrast{display:grid!important}
+.practice-on .card.revealed .tip-row{display:flex!important}
+.practice-on .card.revealed .reveal-hint{display:none!important}
+.reveal-hint{
+  display:none;width:100%;padding:9px 14px;border-radius:10px;
+  background:var(--ccl);border:1.5px dashed var(--cc);color:var(--cc);
+  font-size:12.5px;font-weight:700;font-family:inherit;cursor:pointer;
+  justify-content:center;align-items:center;gap:6px;transition:.15s all;
+}
+.reveal-hint:hover{background:var(--cc);color:#fff}
+
+/* Tip */
+.tip-row{display:flex;gap:8px;padding:10px 14px;background:var(--ccl);border-radius:10px;font-size:13px;line-height:1.55}
+.tip-icon{font-size:15px;flex-shrink:0;opacity:.8}
+.tip-text-en{display:block;color:#475569;margin-top:2px}
+
+/* Empty */
+.no-results{display:none;text-align:center;padding:48px 20px;color:var(--muted)}
+
+/* ── PRACTICE SECTION ── */
+.practice-section{
+  margin:64px 16px 0;background:var(--surface);border-radius:24px;
+  border:1px solid rgba(26,30,46,.08);box-shadow:0 14px 40px rgba(15,23,42,.08);overflow:hidden;
+}
+.practice-inner{padding:36px 36px 40px}
+@media(max-width:640px){.practice-inner{padding:24px 20px 28px}}
+.practice-hd{text-align:center;margin-bottom:24px}
+.practice-hd h2{font-size:28px;font-weight:700;margin-bottom:8px}
+.practice-hd p{color:var(--muted);font-size:15px;max-width:640px;margin:0 auto;line-height:1.6}\n
+.practice-guide{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:720px;margin:0 auto 24px}
+.practice-step{background:#f8fafc;border:1px solid rgba(148,163,184,.12);border-radius:14px;padding:14px 16px;text-align:left}
+.practice-step strong{display:block;font-size:14px;color:var(--ink);margin-bottom:2px;font-weight:600}
+.practice-step span{display:block;font-size:13px;color:#64748b;line-height:1.55}
+.practice-step .step-top{font-size:10px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#94a3b8;margin-bottom:6px}
+.practice-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;max-width:980px;margin:0 auto}
+.practice-side{background:#fff7ed;border:1px solid rgba(251,146,60,.18);border-radius:18px;padding:16px 18px}
+.practice-side h3{font-size:16px;margin-bottom:6px}
+.practice-side p{font-size:13px;color:#7c5a38;line-height:1.6}
+
+.practice-intro{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:720px;margin:0 auto 24px}
+.practice-tip{background:#f8fafc;border:1px solid rgba(26,30,46,.08);border-radius:14px;padding:14px 16px;text-align:left}
+.practice-tip strong{display:block;font-size:13px;color:var(--ink);margin-bottom:2px;font-weight:600}
+.practice-tip span{font-size:13px;color:var(--muted);line-height:1.55}
+.practice-scene-note{max-width:720px;margin:0 auto 18px;padding:10px 14px;border-radius:10px;background:#fff7ed;color:#9a3412;font-size:13px}
+.tab-bar{display:flex;gap:6px;background:rgba(15,23,42,.05);padding:5px;border-radius:999px;width:fit-content;margin:0 auto 28px}
+.tab{
+  padding:10px 20px;border-radius:999px;border:none;background:transparent;
+  color:var(--muted);font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;transition:.2s all;line-height:1.2;
+}
+.tab small{display:block;font-size:11px;font-weight:500;color:#64748b;margin-top:2px}
+.tab.active{background:#fff;color:var(--ink);box-shadow:0 4px 12px rgba(15,23,42,.08)}
+.tab.active small{color:var(--ink)}
+
+/* Flashcard pane */
+.pane{display:none}.pane.active{display:block}
+.fc-wrap{max-width:520px;margin:0 auto}
+.fc-counter{text-align:center;font-size:13px;color:var(--muted);margin-bottom:12px}
+.fc-scene{
+  perspective:1200px;height:300px;cursor:pointer;margin-bottom:20px;
+}
+.fc-inner{
+  position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;transition:.55s cubic-bezier(.4,0,.2,1);
+}
+.fc-scene.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-face{
+  position:absolute;inset:0;border-radius:var(--r);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:28px;text-align:center;border:1px solid var(--line);
+}
+.fc-front{
+  background:linear-gradient(145deg,#0e1f35,#1a3d5c);color:#fff;
+}
+.fc-back{background:var(--surface);transform:rotateY(180deg);overflow:hidden;justify-content:center;padding:24px}
+.fc-cat{font-size:11px;text-transform:uppercase;letter-spacing:.09em;opacity:.6;margin-bottom:12px}
+.fc-word{font-size:56px;font-weight:800;letter-spacing:2px;margin-bottom:8px;line-height:1}
+.fc-pinyin{font-size:15px;opacity:.9;font-style:normal;margin-bottom:6px;color:#dbeafe}
+.fc-hint{font-size:12px;opacity:.4;margin-top:14px}
+.fc-literal{font-size:13px;opacity:.7;margin-top:10px;font-style:italic}
+.fc-meaning{font-size:15px;color:var(--ink);margin-bottom:10px;line-height:1.65}
+.fc-meaning-en{display:block;color:#475569;font-size:13px;margin-top:2px}
+.fc-ex-zh{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.fc-ex-py{font-size:14px;color:#475569;line-height:1.5;font-style:normal;margin-bottom:2px}
+.fc-ex-en{font-size:13px;color:var(--muted);line-height:1.5}
+.fc-contrast{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;width:100%}
+.fc-controls{display:flex;justify-content:center;align-items:center;gap:10px}
+.fc-btn{
+  padding:10px 20px;border-radius:999px;border:1px solid var(--line);
+  background:#fff;color:var(--ink);font-size:13px;font-weight:600;font-family:inherit;
+  cursor:pointer;transition:.15s all;
+}
+.fc-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.fc-known{background:#f0fdf4;border-color:#bbf7d0;color:#15803d}
+.fc-known.marked{background:#15803d;color:#fff;border-color:#15803d}
+.fc-known:hover{background:#15803d!important;color:#fff!important;border-color:#15803d!important}
+
+/* Quiz pane */
+.qz-bar{height:6px;background:rgba(0,0,0,.08);border-radius:3px;overflow:hidden;margin-bottom:8px}
+.qz-fill{height:100%;background:linear-gradient(90deg,#0369a1,#6d28d9);border-radius:3px;transition:.4s width}
+.qz-counter{font-size:13px;color:var(--muted);text-align:center;margin-bottom:10px}
+.qz-q{max-width:580px;margin:0 auto}
+.qz-text{font-size:17px;font-weight:600;line-height:1.65;text-align:center;margin-bottom:14px}
+.qz-text em{font-style:normal;font-weight:800;color:var(--d5);border-bottom:2px solid var(--d5)}
+.qz-helper{font-size:12.5px;color:#64748b;text-align:center;max-width:520px;margin:0 auto 18px}
+.flash-helper{font-size:12.5px;color:#64748b;text-align:center;max-width:480px;margin:0 auto 12px}
+
+.qz-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.qz-opts{grid-template-columns:1fr}}
+.qz-opt{
+  padding:16px 18px;border-radius:12px;border:1.5px solid var(--line);
+  background:var(--surface);font-family:inherit;
+  color:var(--ink);text-align:center;cursor:pointer;transition:.18s all;
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+}
+.qz-opt-word{font-size:20px;font-weight:700}
+.qz-opt-py{font-size:12px;color:var(--muted);font-weight:500}
+.qz-opt:hover:not(:disabled){border-color:#0369a1;background:#f0f9ff}
+.qz-opt.correct{border-color:#047857;background:#ecfdf5;color:#065f46}
+.qz-opt.wrong{border-color:#b91c1c;background:#fef2f2;color:#991b1b}
+.qz-opt:disabled{cursor:default}
+.qz-feedback{
+  margin-top:18px;padding:14px 18px;border-radius:14px;font-size:14px;line-height:1.6;
+  display:none;
+}
+.qz-feedback.show{display:block}
+.qz-feedback.ok{background:#ecfdf5;color:#166534;border:1px solid #bbf7d0}
+.qz-feedback.fail{background:#fef2f2;color:#991b1b;border:1px solid #fecaca}
+.qz-next{
+  display:none;margin:20px auto 0;padding:12px 36px;border-radius:999px;
+  background:var(--ink);color:#fff;border:none;font-size:15px;font-weight:700;
+  font-family:inherit;cursor:pointer;transition:.18s transform;
+}
+.qz-next.show{display:flex;align-items:center;justify-content:center}
+.qz-next:hover{transform:scale(1.04)}
+.qz-result{display:none;text-align:center;padding:44px 20px}
+.qz-result.show{display:block}
+.qz-score{font-size:72px;font-weight:900;line-height:1;margin-bottom:12px;
+  background:linear-gradient(135deg,#0369a1,#6d28d9);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text}
+.qz-result p{color:var(--muted);margin-bottom:24px;font-size:16px}
+.qz-restart{
+  padding:12px 36px;border-radius:999px;background:var(--ink);color:#fff;
+  border:none;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;
+}
+
+/* ── FOOTER ── */
+.footer{
+  text-align:center;padding:48px 24px 36px;color:var(--muted);font-size:13px;
+  border-top:1px solid var(--line);margin-top:56px;
+}
+.footer strong{color:var(--ink)}
+
+/* ── DOMAIN SECTION ENTRANCE ── */
+.domain-section{animation:fadeIn .5s ease both}
+.domain-section:nth-child(1){animation-delay:.1s}
+.domain-section:nth-child(2){animation-delay:.2s}
+.domain-section:nth-child(3){animation-delay:.3s}
+.domain-section:nth-child(4){animation-delay:.4s}
+.domain-section:nth-child(5){animation-delay:.5s}
+
+/* ── CARD ACCENT HEIGHT ── */
+.card-accent{height:6px}
+
+/* ── QUIZ OPTION SIZES ── */
+.qz-opt{font-size:20px}
+
+/* ── FLASHCARD BACK POLISH ── */
+.fc-back{text-align:left;gap:10px}
+.fc-back-sect{width:100%}
+.fc-back-lbl{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.meaning-blk{margin:0 0 16px;padding:14px 16px;border-radius:12px;background:rgba(0,0,0,.03)}
+.meaning-cn{font-size:14px;color:var(--ink);line-height:1.65}
+.meaning-en{font-size:13px;color:#475569;line-height:1.6;margin-top:4px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  .snav{padding:14px 0}
+  .snav-top{flex-direction:column;align-items:stretch;gap:10px}
+  .snav-search{max-width:100%}
+  .snav-tools{justify-content:flex-end}
+  .practice-guide,.practice-grid,.practice-intro{grid-template-columns:1fr}
+  .cat-pill{height:34px;padding:0 14px}
+  .contrast{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(34px,10vw,50px)}
+  .hero{padding:44px 20px 48px}
+  .fc-contrast{grid-template-columns:1fr}
+  .practice-inner{padding:24px 18px 28px}
+  .practice-section{margin:48px 12px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-tag">Chinese Metaphors · Beginner-Friendly</div>
+    <h1>Learn Chinese feelings<br>the natural way</h1>
+    <p class="hero-sub">从身体感觉出发，掌握地道中文表达。<br>Start from everyday sensations and build up natural, fluent Chinese.</p>
+    <div class="hero-actions">
+      <a href="#stickyNav" class="btn-h pri">开始学习 / Start learning</a>
+      <a href="#practice" class="btn-h ghost">去练习 / Practice</a>
+    </div>
+  </div>
+</header>
+
+<!-- ══ STICKY NAV ══ -->
+<nav class="snav" id="stickyNav">
+  <div class="snav-inner">
+    <div class="snav-top">
+      <input type="search" id="searchInput" class="snav-search" placeholder="搜索表达 / Search expressions" aria-label="搜索表达或情绪 Search">
+      <div class="snav-tools">
+        <button class="tool-btn on" id="toggleEn" title="显示/隐藏英文翻译">英文 / English</button>
+        <button class="tool-btn" id="togglePractice" title="专注模式会先隐藏解释，鼓励你先猜意思">专注模式 / Focus</button>
+      </div>
+    </div>
+    <div class="snav-cats" id="navCats">
+      <button class="cat-pill active" data-cat="all"><span class="cat-cn">全部</span><span class="cat-en">All</span></button>
+      <button class="cat-pill" data-cat="body"><span class="cat-cn">躯体疼痛</span><span class="cat-en">Body &amp; Pain</span></button>
+      <button class="cat-pill" data-cat="taste"><span class="cat-cn">视觉味觉</span><span class="cat-en">Vision &amp; Taste</span></button>
+      <button class="cat-pill" data-cat="temp"><span class="cat-cn">温度触觉</span><span class="cat-en">Temperature</span></button>
+      <button class="cat-pill" data-cat="space"><span class="cat-cn">空间重量</span><span class="cat-en">Space &amp; Weight</span></button>
+      <button class="cat-pill" data-cat="breath"><span class="cat-cn">气流呼吸</span><span class="cat-en">Breath &amp; Qi</span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ EXPRESSIONS ══ -->
+<div class="main wrap" id="expressions">
+  <!-- rendered by JS -->
+</div>
+<div class="no-results wrap" id="noResults">没有找到匹配的表达。试试别的关键词。 / No match found. Try another keyword.</div>
+
+<!-- ══ PRACTICE SECTION ══ -->
+<section class="practice-section" id="practice">
+  <div class="practice-inner">
+    <div class="practice-hd">
+      <h2>练一练 / Practice</h2>
+      <p>先看核心意思，再在真实场景里选择。先理解，不要逐词翻译。<br>Focus on the core meaning first, then choose the best expression in context.</p>
+    </div>
+    <div class="practice-guide">
+      <div class="practice-step"><span class="step-top">Step 1</span><strong>先过卡片 / Review cards</strong><span>快速浏览词义、场景和例句</span></div>
+      <div class="practice-step"><span class="step-top">Step 2</span><strong>再选表达 / Choose in context</strong><span>根据情境选出最合适的词</span></div>
+    </div>
+    <div class="practice-intro">
+      <div class="practice-tip"><strong>翻卡时先抓关键词 / Start small</strong><span>先记住这个词表达什么感觉，不要一次看太多说明。</span></div>
+      <div class="practice-tip"><strong>做题时先认情绪 / Read the feeling first</strong><span>先看情绪，再选表达。先判断感觉，不要只看字面。</span></div>
+    </div>
+    <div class="practice-scene-note" id="practiceSceneNote">当前练习：全部表达 / Practice set: All expressions</div>
+    <div class="tab-bar">
+      <button class="tab active" data-tab="flash">闪卡复习<small>Review cards</small></button>
+      <button class="tab" data-tab="quiz">情境选择<small>Choose the best one</small></button>
+    </div>
+
+    <!-- FLASHCARD PANE -->
+    <div class="pane active" id="flashPane">
+      <div class="fc-wrap">
+        <div class="fc-counter" id="fcCounter">1 / 20</div>
+        <div class="flash-helper">先猜意思，再翻面确认。Focus on the feeling first.</div>
+        <div class="fc-scene" id="fcScene" title="点击翻转">
+          <div class="fc-inner" id="fcInner">
+            <div class="fc-face fc-front" id="fcFront">
+              <div class="fc-cat" id="fcCat"></div>
+              <div class="fc-word" id="fcWord"></div>
+              <div class="fc-pinyin" id="fcPinyin"></div>
+              <div class="fc-literal" id="fcLiteral"></div>
+            <div class="fc-hint">点击卡片查看释义 / Tap to flip</div>
+            </div>
+            <div class="fc-face fc-back" id="fcBack">
+              <div class="fc-meaning" id="fcMeaning"></div>
+              <div class="fc-ex-zh" id="fcExZh"></div>
+              <div class="fc-ex-py" id="fcExPy"></div>
+              <div class="fc-ex-en" id="fcExEn"></div>
+              <div class="fc-contrast" id="fcContrast"></div>
+            </div>
+          </div>
+        </div>
+        <div class="fc-controls">
+          <button class="fc-btn" id="fcPrev">← 上一张</button>
+          <button class="fc-btn fc-known" id="fcKnown">我会了 ✓</button>
+          <button class="fc-btn" id="fcNext">下一张 →</button>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- QUIZ PANE -->
+    <div class="pane" id="quizPane">
+      <div class="practice-grid">
+      <div class="practice-side"><h3>放进场景 / Use in context</h3><p>先看感觉，再选表达。先理解场景，不要逐词翻译。</p></div>
+      <div id="quizBody">
+        <div class="qz-bar"><div class="qz-fill" id="qzFill" style="width:0%"></div></div>
+        <div class="qz-counter" id="qzCounter">第 1 题 / 共 15 题</div>
+        <div class="qz-q">
+          <div class="qz-text" id="qzText"></div>
+          <div class="qz-helper">Read the feeling first, then pick the best expression.</div>
+          <div class="qz-opts" id="qzOpts"></div>
+          <div class="qz-feedback" id="qzFeedback"></div>
+          <button class="qz-next" id="qzNext">下一题 →</button>
+        </div>
+      </div>
+      <div class="qz-result" id="qzResult">
+        <div class="qz-score" id="qzScore"></div>
+        <p id="qzMsg"></p>
+        <button class="qz-restart" id="qzRestart">再来一次</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer wrap">
+  <strong>中文里的身体密码</strong> · 20个具身表达完全指南<br>
+  For novice–intermediate learners · Tap the speaker icon to listen
+</footer>
+
+<script src="https://unpkg.com/pinyin-pro/dist/index.js"></script>
+<script>
+/* ═══════════════════════════════════════════
+   DATA
+═══════════════════════════════════════════ */
+const DOMAINS = [
+  {id:'body',  name:'躯体与疼痛',    sub:'Body & Pain — feelings spoken through the body',      icon:'💗', color:'#b91c1c', light:'#fef2f2'},
+  {id:'taste', name:'视觉与味觉',    sub:'Vision & Taste — colour and taste map to emotions',     icon:'👁️', color:'#b45309', light:'#fffbeb'},
+  {id:'temp',  name:'温度与触觉',    sub:'Temperature & Touch — physical warmth maps to social warmth',icon:'🌡️', color:'#047857', light:'#ecfdf5'},
+  {id:'space', name:'空间、重量与方向',sub:'Space & Weight — weight and direction shape judgment', icon:'⚖️', color:'#6d28d9', light:'#f5f3ff'},
+  {id:'breath',name:'气流与呼吸',    sub:'Qi & Breathing — a uniquely Chinese way to voice emotion', icon:'💨', color:'#0369a1', light:'#f0f9ff'},
+];
+
+
+
+const EXPR = [
+  {id:1,cat:'body',word:'心疼',pinyin:'xīn téng',literal:'heart hurts',
+   story:'下雨天，小狗一直在外面淋雨，浑身湿透，你透过玻璃窗看着它……',
+   meaning:'看到心爱的人、动物或珍贵物品受苦时，内心感到难受、舍不得。',
+   examples:[
+     {zh:'下雨天看到外面淋雨的小狗，我好<kw>心疼</kw>它。',en:'I felt so bad seeing the dog out in the rain.'},
+     {zh:'妈妈每天工作到那么晚，我看着就<kw>心疼</kw>。',en:'It hurts to see Mom working so late every day.'},
+     {zh:'手机屏幕摔碎了，<kw>心疼</kw>死了！',en:'My phone screen cracked. I feel terrible about it.'},
+   ],
+   cnMeaning:'极度怜爱、关切，看到在乎的人或东西受苦时的心理痛感。',
+   enTrap:'"My heart hurts" → 英语首先想到心脏病发作！中文这是情感，不是医疗紧急情况。',
+   tip:'英文类比：<em>"My heart aches for you"</em> 或 <em>"I feel so sorry."</em>'},
+
+  {id:2,cat:'body',word:'头大',pinyin:'tóu dà',literal:'head is big',
+   story:'明天要交三份作业，还要参加社团活动。你看着日程表，感觉脑袋要炸了……',
+   meaning:'面对复杂麻烦的问题，感到脑力透支、焦虑烦恼，不知道怎么办。',
+   examples:[
+     {zh:'今天有三个考试，作业还没写完，我<kw>头都大了</kw>！',en:'Three exams today and homework still undone — I\'m totally overwhelmed!'},
+     {zh:'这道题看了一个小时还是不懂，真<kw>头大</kw>。',en:'I\'ve been staring at this problem for an hour and still don\'t get it.'},
+     {zh:'老板今天又加了新任务，我<kw>头大极了</kw>，不知道从哪里开始。',en:'The boss piled on more tasks — I\'m totally overwhelmed.'},
+   ],
+   cnMeaning:'压力大、焦虑、不知所措，脑力透支的感觉。',
+   enTrap:'"Big-headed" in English = 自大傲慢！中文"头大"= 压力太大，方向完全相反！',
+   tip:'记忆法：头因为想太多而"发胀"，不是因为骄傲。'},
+
+  {id:3,cat:'body',word:'硬着头皮',pinyin:'yìng zhe tóu pí',literal:'stiffen the scalp',
+   story:'老师点名让你上台发言，你完全没准备好，但没有办法，只能站起来走上去……',
+   meaning:'明知道很难或不情愿，但迫于情况，还是勉强撑着去做了。',
+   examples:[
+     {zh:'他不会唱歌，但同学们都等着，只好<kw>硬着头皮</kw>上台了。',en:'He can\'t sing, but with everyone waiting, he steeled himself and went up.'},
+     {zh:'那道菜超辣，为了不让主人尴尬，她<kw>硬着头皮</kw>吃完了。',en:'The dish was really spicy, but she forced herself to finish it so the host wouldn\'t feel bad.'},
+     {zh:'明知道会被拒绝，她还是<kw>硬着头皮</kw>去问了。',en:'Knowing she\'d likely be rejected, she braced herself and asked anyway.'},
+   ],
+   cnMeaning:'明知很难、不情愿，但迫不得已还是去做了，里面有一点勉强和无奈。',
+   enTrap:'头皮怎么能变硬？英语类似说法是 "bite the bullet"（咬子弹撑下去）。',
+   tip:'想象把头颈所有肌肉绷紧，准备迎接不愉快的事——就是"咬牙上"的感觉。'},
+
+  {id:4,cat:'body',word:'没心没肺',pinyin:'méi xīn méi fèi',literal:'no heart, no lungs',
+   story:'你和朋友昨天刚吵架，很难过。第二天，朋友就好像什么都没发生，开开心心地来找你……',
+   meaning:'这个人不记事、不在乎、无忧无虑，情绪上像个"空心人"。常带亲昵的无奈感。',
+   examples:[
+     {zh:'他这人<kw>没心没肺</kw>，昨天刚吵完，今天又笑嘻嘻的。',en:'He\'s so carefree — we argued yesterday, and today he\'s all smiles.'},
+     {zh:'别跟他生气，他就是<kw>没心没肺</kw>的，不是故意的。',en:'Don\'t be angry — he\'s just thoughtless, not mean.'},
+     {zh:'<kw>没心没肺</kw>的人反而活得更快乐，什么都不往心里去。',en:'Carefree people often live happier — nothing weighs on them.'},
+   ],
+   cnMeaning:'无忧无虑、不记情感，程度轻，常带亲昵无奈。不是残忍，是"缺根筋"。',
+   enTrap:'"Heartless" in English = 残忍冷酷（重度贬义）！中文"没心没肺"语气轻很多。',
+   tip:'说某人"没心没肺"，有时甚至带羡慕——他们不受情绪包袱拖累。'},
+
+  {id:5,cat:'taste',word:'眼红',pinyin:'yǎn hóng',literal:'red eyes',
+   story:'同桌刚买了最新款的 AirPods，在班里到处给人看。你看着他的新耳机……',
+   meaning:'看到别人得到好东西或好成绩，感到极度羡慕和嫉妒，像眼睛里充满了血。',
+   examples:[
+     {zh:'同事买了新车，他心里有点<kw>眼红</kw>。',en:'He felt a pang of jealousy seeing his colleague\'s new car.'},
+     {zh:'她考了第一名，班上好几个同学都<kw>眼红</kw>了。',en:'She came first in the class and several classmates were jealous.'},
+     {zh:'别那么<kw>眼红</kw>，努力赚钱你也能买。',en:'Don\'t be so jealous — work hard and you can have it too.'},
+   ],
+   cnMeaning:'嫉妒、羡慕。中文嫉妒 = 红色（眼睛充血）。',
+   enTrap:'"Red eyes" in English = 没睡好/结膜炎！英语嫉妒是 <em>green</em>（green with envy）！颜色完全相反！',
+   tip:'🌈 中文嫉妒 = 红色 / 英文嫉妒 = 绿色——记住这个颜色差异！'},
+
+  {id:6,cat:'taste',word:'吃醋',pinyin:'chī cù',literal:'eat vinegar',
+   story:'你男朋友/女朋友正在和一个很漂亮/帅气的陌生人聊天，笑得非常开心……',
+   meaning:'在恋爱关系中，因为担心自己的地位被取代，感到不安和嫉妒。',
+   examples:[
+     {zh:'看到男朋友和别的女孩聊天，她<kw>吃醋</kw>了。',en:'She got jealous seeing her boyfriend chatting with another girl.'},
+     {zh:'你别<kw>吃醋</kw>了，那个人是我表哥！',en:'Stop being jealous — that\'s my cousin!'},
+     {zh:'他装作不在乎，其实心里已经在<kw>吃醋</kw>了。',en:'He pretended not to care, but he was already jealous inside.'},
+   ],
+   cnMeaning:'专指恋爱关系中的嫉妒，不是普通羡慕，也不是脾气暴躁。',
+   enTrap:'"Eating vinegar" → 喝调料？英语 "sour" 指脾气差或尖酸，但"吃醋"只用于感情嫉妒！',
+   tip:'"醋"只绑定给感情嫉妒。普通羡慕/嫉妒用"眼红"，恋爱嫉妒用"吃醋"。'},
+
+  {id:7,cat:'taste',word:'吃苦',pinyin:'chī kǔ',literal:'eat bitter',
+   story:'那位同学每天六点起床练体育，风雨无阻，从不喊累，从不抱怨……',
+   meaning:'主动承受身体或心理上的艰辛劳作，是一种值得尊敬的美德和能力。',
+   examples:[
+     {zh:'这个学生很<kw>能吃苦</kw>，每天五点就起来练习游泳。',en:'This student really can handle hardship. He gets up at 5 a.m. to practise swimming every day.'},
+     {zh:'不<kw>吃苦</kw>，哪来的成功？',en:'No pain, no gain.'},
+     {zh:'奶奶年轻时很<kw>能吃苦</kw>，一个人把三个孩子都养大了。',en:'Grandma endured so much hardship in her youth, raising three kids alone.'},
+   ],
+   cnMeaning:'主动承受艰辛，是积极正面的美德——能吃苦的人值得称赞！',
+   enTrap:'"Bitter" in English = 怨恨愤世（消极）。"能吃苦" in Chinese = 坚强有耐力（积极称赞）！',
+   tip:'"吃苦"是主动的、有力量的——不是抱怨，是默默扛下来的硬气。'},
+
+  {id:8,cat:'taste',word:'嘴甜',pinyin:'zuǐ tián',literal:'mouth is sweet',
+   story:'七岁的表弟一进门就说："阿姨，你今天穿这件衣服真漂亮！"大人们都笑了……',
+   meaning:'说话好听，经常夸人，让人开心，是很受欢迎的社交能力。',
+   examples:[
+     {zh:'这个孩子<kw>嘴很甜</kw>，见到老师就说"老师今天好漂亮！"',en:'This kid is such a sweet-talker — immediately tells the teacher she looks great.'},
+     {zh:'她<kw>嘴甜</kw>，每次去奶奶家都会夸奶奶的菜是全世界最好吃的。',en:'She\'s so charming — tells Grandma every time that her cooking is the best in the world.'},
+     {zh:'<kw>嘴甜</kw>的人走到哪里都受欢迎。',en:'Sweet-mouthed people are welcome everywhere they go.'},
+   ],
+   cnMeaning:'说话讨人喜欢，会夸人，有讨喜的社交能力。',
+   enTrap:'英语说人 "sweet" 指性格，不会说"嘴甜"来评价社交能力——这个器官+味道的组合是中文独有的。',
+   tip:'"嘴甜"≠ 说假话。好的"嘴甜"是真诚的赞美，让人感到被重视。'},
+
+  {id:9,cat:'taste',word:'辣眼睛',pinyin:'là yǎn jing',literal:'spicy eyes',
+   story:'朋友发来一张自拍：荧光绿上衣 + 橙色裤子，背景是乱成一团的宿舍……',
+   meaning:'看到极其难看、奇怪或不协调的东西，视觉和心理都受到强烈冲击（视觉污染）。',
+   examples:[
+     {zh:'他今天穿的颜色搭配太奇怪了，简直<kw>辣眼睛</kw>！',en:'His outfit today is such an eyesore!'},
+     {zh:'这张照片修得也太假了，<kw>辣眼睛</kw>啊。',en:'This photo is so over-edited — what an eyesore.'},
+     {zh:'这个PPT一页十几种颜色，还满屏动画，真的<kw>辣眼睛</kw>。',en:'This PPT uses too many colors and flashy effects on one slide — it is such an eyesore.'},
+   ],
+   cnMeaning:'"视觉污染"——看了让人不舒服，像辣椒刺激眼睛一样。',
+   enTrap:'"Spicy" in English often means exciting or sexy. In Chinese slang, it means visually offensive!',
+   tip:'这是网络流行语，年轻人爱用。= "That\'s an eyesore!" / "I can\'t unsee that."'},
+
+  {id:10,cat:'temp',word:'冷冰冰',pinyin:'lěng bīng bīng',literal:'cold ice ice',
+   story:'你走进一家店问服务员问题，他头也不抬，冷冷地说"没有"，然后继续看手机……',
+   meaning:'形容一个人态度极其冷漠、不友好，让人感到不受欢迎。',
+   examples:[
+     {zh:'那个服务员对所有人都<kw>冷冰冰</kw>的，我不想再去那家店了。',en:'The staff were icy cold to everyone — I won\'t go back.'},
+     {zh:'他今天不知道为什么对我<kw>冷冰冰</kw>的，平时不这样的。',en:'For some reason he was being frosty to me today — he\'s never like that normally.'},
+     {zh:'新同学一开始<kw>冷冰冰</kw>的，后来熟了才知道她只是很内向。',en:'The new classmate seemed icy at first, but she turned out to just be very introverted.'},
+   ],
+   cnMeaning:'态度冷漠、不友好，缺乏人情味。',
+   enTrap:'这个其实和英文逻辑接近！"Cold attitude" ≈ "冷冰冰"。但叠音"冰冰"让感觉更强烈、更生动。',
+   tip:'好消息：温度→性格的映射，中英相似！"Icy cold attitude" = 冷冰冰的态度。'},
+
+  {id:11,cat:'temp',word:'心寒',pinyin:'xīn hán',literal:'heart cold',
+   story:'你帮了一个朋友很多次，借钱、搬家、陪他度过难关……但他一出事反而在背后说你坏话。',
+   meaning:'曾经付出真心，却遭到背叛或冷遇后，曾有的热情被完全浇灭，极度失望。',
+   examples:[
+     {zh:'我帮了他那么多，他却这样对我，真让我<kw>心寒</kw>。',en:'I did so much for him, yet he treats me like this. It really leaves me cold.'},
+     {zh:'好朋友在背后说我坏话，我知道以后真的很<kw>心寒</kw>。',en:'When I found out my close friend was bad-mouthing me, my heart went cold.'},
+     {zh:'看到他为了钱连家人都不管了，大家都<kw>心寒</kw>了。',en:'Seeing him abandon his family for money left everyone deeply disheartened.'},
+   ],
+   cnMeaning:'因被辜负/背叛而极度失望，曾有的信任和热情被"冻住"了。',
+   enTrap:'失温症？英语说极度失望通常用 "devastated" 或 "crushed"，不用"心脏变冷"。',
+   tip:'"心寒"= 你曾经很"热"（有信任/期望）——对方的行为把你的心"冻住"了。'},
+
+  {id:12,cat:'temp',word:'耳根子软',pinyin:'ěr gēn zi ruǎn',literal:'ear roots are soft',
+   story:'妈妈说不给买玩具，但爸爸在旁边帮你说了一句，妈妈马上就答应了……',
+   meaning:'没有主见，别人一说就信，容易被别人的话影响和说服。',
+   examples:[
+     {zh:'她<kw>耳根子软</kw>，别人一求她，她就答应了。',en:'She\'s easily swayed — one request and she immediately caves.'},
+     {zh:'做生意不能太<kw>耳根子软</kw>，要有自己的判断。',en:'In business, you can\'t be too easily persuaded — stand your ground.'},
+     {zh:'他<kw>耳根子软</kw>，朋友一劝，马上就改变主意了。',en:'He\'s so easily influenced — his friend said a few words and he changed his mind.'},
+   ],
+   cnMeaning:'没主见，容易被说服，心理防线薄弱。',
+   enTrap:'耳朵软骨有问题？这是中文独有的隐喻：耳朵的"硬度"= 对他人影响的抵抗力。',
+   tip:'想象耳根是一道"防御墙"。软= 墙薄，什么话都进得去。硬= 有主见。= "easily swayed"'},
+
+  {id:13,cat:'space',word:'看重',pinyin:'kàn zhòng',literal:'look heavy',
+   story:'老板在开会时特别表扬了那位同事，把重要项目都交给他负责……',
+   meaning:'认为某人或某事很有价值、很重要，非常在乎。',
+   examples:[
+     {zh:'老板很<kw>看重</kw>他的工作能力，经常让他负责重要项目。',en:'The boss values his abilities highly and often puts him in charge of key projects.'},
+     {zh:'她很<kw>看重</kw>朋友之间的信任，宁愿自己吃亏。',en:'She places great importance on trust between friends — even at her own expense.'},
+     {zh:'这家公司很<kw>看重</kw>候选人的团队合作能力。',en:'This company highly values teamwork skills in candidates.'},
+   ],
+   cnMeaning:'认为某人/某事很重要、很有价值，是正面的评价。',
+   enTrap:'"Look heavy" in English = 看起来很胖！这会造成严重社交误会。永远不要直译！',
+   tip:'中文抽象思维：重 = 重要。"看重"= "to value / regard highly"。绝不是评价体重！'},
+
+  {id:14,cat:'space',word:'心里有底',pinyin:'xīn lǐ yǒu dǐ',literal:'heart has a bottom',
+   story:'考试前你把所有重点都复习了一遍，错题也认真看了。走进考场时，你感觉——稳了。',
+   meaning:'因为有了准备和了解，内心感到踏实、自信，不会慌乱。',
+   examples:[
+     {zh:'考试前复习得很充分，我现在<kw>心里有底</kw>了。',en:'After thorough preparation, I feel confident going into the exam.'},
+     {zh:'听了老师的解释，大家终于<kw>心里有底</kw>了，知道怎么做了。',en:'After the teacher\'s explanation, everyone finally felt settled and knew what to do.'},
+     {zh:'第一次去面试，<kw>心里没底</kw>，不知道他们会问什么。',en:'First job interview — no bottom in my heart, no idea what to expect.'},
+   ],
+   cnMeaning:'有把握、有准备，内心稳定，不会悬空慌乱。',
+   enTrap:'心脏解剖学？英语用 "confident" 或 "well-prepared"，没有这种容器隐喻。',
+   tip:'把内心想成一个杯子——有"底"才能站稳，不会悬空（慌张）。= "feel grounded and prepared"'},
+
+  {id:15,cat:'space',word:'走弯路',pinyin:'zǒu wān lù',literal:'walk curved roads',
+   story:'你花了两个小时用错误方法背单词，根本记不住……如果早点知道正确方法就好了。',
+   meaning:'在学习或生活中用错了方法，绕了远路，浪费了时间和精力。',
+   examples:[
+     {zh:'听老师的建议，可以让你少<kw>走弯路</kw>。',en:'Following the teacher\'s advice will save you from taking unnecessary detours.'},
+     {zh:'他自己摸索了两年才找到方向，<kw>走了不少弯路</kw>。',en:'He spent two years figuring things out alone — took many wrong turns.'},
+     {zh:'学语言要找对方法，方法错了就会<kw>走弯路</kw>，浪费时间。',en:'Find the right method for language learning, or you\'ll waste time going the wrong way.'},
+   ],
+   cnMeaning:'犯了错误、用了低效方法，浪费时间精力。需要避免的。',
+   enTrap:'"Winding road" in English can be scenic and positive! 中文"弯路"= 错误和浪费，一点都不好看。',
+   tip:'记忆法：直路= 正确高效，弯路= 错误浪费。= "take the wrong path / make avoidable mistakes"'},
+
+  {id:16,cat:'space',word:'上心',pinyin:'shàng xīn',literal:'go up to the heart',
+   story:'朋友的生日快到了，他两个月前就开始计划礼物，提前订好蛋糕，还安排了惊喜……',
+   meaning:'把某件事认真放在心上，非常在乎，用心对待。',
+   examples:[
+     {zh:'朋友的生日，他一直很<kw>上心</kw>，提前一个月就开始准备了。',en:'He took his friend\'s birthday very seriously — started planning a month in advance.'},
+     {zh:'这个学生学习很<kw>上心</kw>，课后还会主动找老师问问题。',en:'This student is genuinely invested — even seeks out the teacher after class.'},
+     {zh:'妈妈对我的健康很<kw>上心</kw>，每天提醒我多喝水。',en:'Mom takes my health very seriously — reminds me to drink water every single day.'},
+   ],
+   cnMeaning:'认真在乎，主动关注，把事情"放在心上"对待。',
+   enTrap:'英语有 "take to heart"，但中文的"上"更有动感——把原本不在意的东西"提升"到心里。',
+   tip:'"上心"有方向感：把一件事从"不在意区"主动提升到"心的位置"。= "take seriously / care deeply"'},
+
+  {id:17,cat:'breath',word:'咽不下这口气',pinyin:'yàn bú xià zhè kǒu qì',literal:"can't swallow this mouthful of air",
+   story:'你明明什么都没做错，但老板当着所有人的面批评了你。回到座位，胸口堵堵的……',
+   meaning:'受到委屈、侮辱或不公正对待，心中极度气愤，无法接受、无法释怀。',
+   examples:[
+     {zh:'他无缘无故被当众骂了，实在<kw>咽不下这口气</kw>。',en:'He was scolded in public for no reason — he just couldn\'t swallow the insult.'},
+     {zh:'比赛明明赢了，裁判的判决太不公平，大家都<kw>咽不下这口气</kw>。',en:'We clearly won, but the referee\'s call was so unfair — the team couldn\'t swallow it.'},
+     {zh:'被误会了还没机会解释，她<kw>咽不下这口气</kw>，哭了很久。',en:'She was misunderstood with no chance to explain. She couldn\'t swallow the frustration and cried for a long time.'},
+   ],
+   cnMeaning:'受辱/受委屈后极度气愤，无法接受这份不公平。',
+   enTrap:'被噎住？窒息？中文把"受辱的愤怒"想象成一块气堵在喉咙里，吞不下去。',
+   tip:'愤怒在中文里是一块气堵在胸口。= "cannot swallow the insult / cannot tolerate the injustice"'},
+
+  {id:18,cat:'breath',word:'沉不住气',pinyin:'chén bú zhù qì',literal:"can't sink/hold down the breath",
+   story:'大家都在安静等待考试结果，但有个同学坐不住了，不停刷手机、问老师……',
+   meaning:'在关键时刻失去耐心和冷静，急于行动而犯错或提前暴露了意图。',
+   examples:[
+     {zh:'大家都在等，你别<kw>沉不住气</kw>，再等等。',en:'Everyone is waiting — don\'t lose your cool, just be a little more patient.'},
+     {zh:'谈判还没结束，他就<kw>沉不住气</kw>先让步了。',en:'The negotiation wasn\'t over, but he lost his patience and conceded too early.'},
+     {zh:'下棋要冷静，一<kw>沉不住气</kw>就容易走错棋。',en:'Chess requires staying calm — the moment you lose your composure, you\'ll make wrong moves.'},
+   ],
+   cnMeaning:'缺乏耐心，急躁，关键时刻冷静不下来，冲动行事。',
+   enTrap:'游泳沉不下去？中文认为：冷静= 气沉丹田（向下）；急躁= 气往上冲，沉不住。',
+   tip:'冷静的人"气往下沉"，浮躁的人"气往上冲"。= "lose one\'s composure / act impulsively"'},
+
+  {id:19,cat:'breath',word:'憋屈',pinyin:'biē qū',literal:'suppressed and wronged',
+   story:'明明是同事的错，但因为他是上司的亲戚，最后你被要求道歉……你只能低头，什么都没法说。',
+   meaning:'心里有委屈和烦闷，但无法发泄出来，像被闷在一个缺氧的密封空间里。',
+   examples:[
+     {zh:'明明不是我的错，却要我道歉，太<kw>憋屈</kw>了！',en:'It clearly wasn\'t my fault, yet I had to apologize. It\'s so unfair and suffocating.'},
+     {zh:'他在公司里总是受气，又不敢说，<kw>憋屈</kw>了好几个月了。',en:'He\'s been pushed around at work but dares not speak up — suffocating inside for months.'},
+     {zh:'有话说不出口，那种<kw>憋屈</kw>的感觉真的很难受。',en:'Having words you can\'t say — that sealed-in, suffocating feeling is truly awful.'},
+   ],
+   cnMeaning:'受委屈却无处申诉，被迫压制情绪，窒息般的憋闷感。',
+   enTrap:'英语说 "frustrated" 或 "suffocating"，但"憋"更生动——是主动压制气流的那种难受。',
+   tip:'想象你在密封小房间里，有话要说，有气要出，但没有任何出口——这就是"憋屈"。'},
+
+  {id:20,cat:'breath',word:'松了一口气',pinyin:'sōng le yī kǒu qì',literal:'loosened a mouthful of breath',
+   story:'你盯着手机等成绩，心跳加速……屏幕亮了，是"及格"两个字。你长呼一口气……',
+   meaning:'紧张感解除，危机过去，终于全身放松下来，呼出一口长气。',
+   examples:[
+     {zh:'成绩出来及格了，我终于<kw>松了一口气</kw>。',en:'When I passed, I finally let out a long breath of relief.'},
+     {zh:'听说朋友的手术很成功，大家都<kw>松了一口气</kw>。',en:'When we heard the surgery went well, everyone breathed a collective sigh of relief.'},
+     {zh:'找到了丢失的钱包，她<kw>松了一口气</kw>，整个人都轻松了。',en:'She found her lost wallet and let out a huge sigh — the weight just lifted.'},
+   ],
+   cnMeaning:'紧张解除后的放松感，危机过去，全身松弛。',
+   enTrap:'这个和英文完全一样！"Sigh of relief" = 松了一口气。✅ 中英同源，人类的生理反应相同。',
+   tip:'🎉 这是 20 个表达里唯一一个中英完全相同的！人类紧张都会屏气，放松都会呼气。'},
+];
+
+const WATCH_BI = {
+  1:{cn:'别直译：心疼 = 很舍不得，很难受。', en:'Do not translate literally. 心疼 = feel very bad for someone.'},
+  2:{cn:'别直译：头大 = 压力大，不是自大。', en:'头大 = overwhelmed, not big-headed.'},
+  3:{cn:'硬着头皮 = 不想做，但还是做。', en:'硬着头皮 = force yourself to do it even though you don\'t want to.'},
+  4:{cn:'没心没肺常常语气不重。', en:'Often light or teasing, not as strong as heartless.'},
+  5:{cn:'眼红 = 嫉妒，不是红眼病。', en:'眼红 = jealous / envious. Not red eyes.'},
+  6:{cn:'吃醋只用于感情里的嫉妒。', en:'吃醋 = romantic jealousy. Not eat vinegar.'},
+  7:{cn:'吃苦是表扬，不是抱怨。', en:'吃苦 is praise for endurance, not complaining.'},
+  8:{cn:'嘴甜 = 说话让人开心。', en:'嘴甜 = say nice things in a warm, charming way.'},
+  9:{cn:'辣眼睛 = 太难看，看着不舒服。', en:'辣眼睛 = an eyesore. Hard to look at.'},
+  10:{cn:'冷冰冰 = 态度冷，不热情。', en:'冷冰冰 = cold and unfriendly.'},
+  11:{cn:'心寒 = 很失望，不是身体发冷。', en:'心寒 = deeply disappointed. Not physically cold.'},
+  12:{cn:'耳根子软 = 别人一说就容易变。', en:'耳根子软 = easily swayed by what others say.'},
+  13:{cn:'看重 = 很重视。', en:'看重 = value highly. Not look heavy.'},
+  14:{cn:'心里有底 = 有准备，有把握。', en:'心里有底 = feel prepared and confident.'},
+  15:{cn:'走弯路 = 方法不对，白花时间。', en:'走弯路 = take the wrong path and waste time.'},
+  16:{cn:'上心 = 认真在乎，放在心上。', en:'上心 = care about it and take it seriously.'},
+  17:{cn:'咽不下这口气 = 受了委屈，忍不下。', en:'咽不下这口气 = cannot accept an insult or unfair treatment.'},
+  18:{cn:'沉不住气 = 太急了，先乱动。', en:'沉不住气 = lose patience too early.'},
+  19:{cn:'憋屈 = 委屈，但说不出来。', en:'憋屈 = feeling wronged and unable to say it out loud.'},
+  20:{cn:'松了一口气 = 紧张过后终于放松。', en:'松了一口气 = a sigh of relief.'}
+};
+
+const MEANING_EN = {
+  1:'Feeling sorry for someone (or something) you care about.',
+  2:'Feeling stressed and overwhelmed by too many things at once.',
+  3:'Doing something difficult or unpleasant because you have no choice.',
+  4:'Carefree and a little emotionally unaware, usually said in a teasing way.',
+  5:'Feeling jealous when someone else gets something good.',
+  6:'Jealousy in a romantic relationship.',
+  7:'Being able to work hard and handle difficulties.',
+  8:'Speaking sweetly and making other people feel good.',
+  9:'So ugly or awkward that it hurts your eyes.',
+  10:'Having a cold and unfriendly attitude.',
+  11:'Feeling deeply disappointed after being hurt or betrayed.',
+  12:'Easy to persuade and not very firm.',
+  13:'To think someone or something is very important.',
+  14:'Feeling confident because you are prepared.',
+  15:'Using the wrong method and wasting time.',
+  16:'Caring about something and taking it seriously.',
+  17:'Being too angry to accept unfair treatment.',
+  18:'Losing patience and acting too quickly.',
+  19:'Feeling wronged and unable to let it out.',
+  20:'Feeling relaxed after the stress is gone.',
+};
+
+const STORY_EN = {
+  1:'You see a puppy outside in the rain.',
+  2:'You have too much homework and feel overwhelmed.',
+  3:'The teacher asks you to speak, and you have to do it.',
+  4:'You argued yesterday, but your friend acts normal today.',
+  5:'Your classmate gets something new, and you feel jealous.',
+  6:'Your boyfriend or girlfriend is chatting happily with someone else.',
+  7:'A classmate trains hard every day and never complains.',
+  8:'A child says sweet things and makes everyone smile.',
+  9:'A slide or picture looks so messy that it hurts your eyes.',
+  10:'A shop assistant speaks to you in a cold way.',
+  11:'You helped a friend a lot, but they still speak badly about you behind your back.',
+  12:'She changes her mind as soon as someone speaks to her.',
+  13:'The boss thinks this person is very important.',
+  14:'You studied thoroughly and now you feel ready.',
+  15:'You used the wrong way to study and wasted time.',
+  16:'A friend carefully prepares something important.',
+  17:'You were treated unfairly in public.',
+  18:'Everyone is waiting, but one student is too impatient.',
+  19:'It was not your fault, but you had to say sorry.',
+  20:'You pass the test and finally relax.',
+};
+
+const TIP_EN = {
+  1:'English match: "My heart aches for you" / "I feel so sorry."',
+  2:'Think of your head swelling from overthinking, not arrogance.',
+  3:'Similar to "bite the bullet" and push through unwillingly.',
+  4:'It often sounds teasing, not as harsh as "heartless."',
+  5:'Chinese jealousy is red; English jealousy is green.',
+  6:'Use this for romantic jealousy, not general envy.',
+  7:'This is an admired strength: enduring hardship with discipline.',
+  8:'Good "sweet talk" is sincere praise, not fake flattery.',
+  9:'Internet slang for something so ugly it hurts to look at.',
+  10:'Close to "icy cold attitude" in English.',
+  11:'Warm trust gets frozen by betrayal.',
+  12:'Soft "ear root" means weak resistance to persuasion.',
+  13:'It means "value highly," never "look heavy."',
+  14:'Having a "bottom" means feeling grounded and prepared.',
+  15:'A straight path is efficient; a winding path wastes time.',
+  16:'It means taking something seriously and caring deeply.',
+  17:'Like being unable to swallow an unfair insult.',
+  18:'Calmness sinks downward; impatience rushes upward.',
+  19:'A suffocating feeling of grievance with no outlet.',
+  20:'This maps directly to "a sigh of relief."',
+};
+
+
+
+/* ═══════════════════════════════════════════
+   QUIZ DATA  (15 scenario questions)
+═══════════════════════════════════════════ */
+const QUIZ = [
+  {q:'下雨天，小狗一直在外面淋雨，浑身湿透。你看到了，心里很难受，很舍不得。这种感觉叫做___。',
+   opts:['心疼','眼红','心寒','憋屈'],ans:0,
+   expCn:'"心疼"= 看到在乎的人或动物受苦时，内心难受和怜爱。',
+   expEn:'"心疼" means emotional heartache and tenderness when someone you care about suffers.'},
+  {q:'今天要交三份作业，还要准备明天的演讲，你感到焦虑烦恼，不知道先做什么。你会说：我___！',
+   opts:['头大','上心','沉不住气','走弯路'],ans:0,
+   expCn:'"头大"= 事情太多太难，脑力透支，感到焦虑。',
+   expEn:'"头大" means feeling mentally overloaded and overwhelmed by too many difficult tasks.'},
+  {q:'你不喜欢吃辣，但朋友特意做了很辣的菜。为了不让朋友难看，你___地吃完了。',
+   opts:['没心没肺','硬着头皮','上心','耳根子软'],ans:1,
+   expCn:'"硬着头皮"= 不情愿但迫不得已，还是勉强去做了。',
+   expEn:'"硬着头皮" means forcing yourself to do something unpleasant because you must.'},
+  {q:'同桌买了最新款 AirPods，在班里到处给人看。你看着他的新耳机，心里酸酸的，很嫉妒。这叫___。',
+   opts:['吃醋','眼红','心寒','辣眼睛'],ans:1,
+   expCn:'"眼红"= 看到别人有好东西而产生嫉妒。',
+   expEn:'"眼红" means feeling jealous of others\' success or possessions.'},
+  {q:'你男朋友一直在跟一个陌生女生聊天，笑得很开心。你感到不安和嫉妒。你在___。',
+   opts:['眼红','憋屈','吃醋','心疼'],ans:2,
+   expCn:'"吃醋"专指恋爱关系中的嫉妒。',
+   expEn:'"吃醋" specifically refers to romantic jealousy in a relationship.'},
+  {q:'那位服务员对所有顾客都不打招呼，不微笑，态度很差，让人感觉很不受欢迎。他的态度___。',
+   opts:['辣眼睛','冷冰冰','耳根子软','心寒'],ans:1,
+   expCn:'"冷冰冰"= 态度冷漠不友好，缺乏人情味。',
+   expEn:'"冷冰冰" describes an icy, distant, and unfriendly attitude.'},
+  {q:'你帮了朋友很多次，但他出了事以后，反而在背后说你坏话。你知道以后感到极度失望。这叫___。',
+   opts:['头大','心疼','心寒','憋屈'],ans:2,
+   expCn:'"心寒"= 被辜负后极度失望，热情被冻住。',
+   expEn:'"心寒" means feeling deeply hurt and emotionally chilled by betrayal.'},
+  {q:'明明不是你的错，但被要求道歉。你有委屈，无法发泄，只能憋在心里，感觉很___。',
+   opts:['咽不下这口气','沉不住气','憋屈','心寒'],ans:2,
+   expCn:'"憋屈"= 受委屈却无处申诉，只能压着情绪。',
+   expEn:'"憋屈" means feeling wronged and stifled with no way to vent.'},
+  {q:'谈判还没到最关键的阶段，他就___，先把自己的底牌说出来了，导致对手占了上风。',
+   opts:['耳根子软','沉不住气','走弯路','没心没肺'],ans:1,
+   expCn:'"沉不住气"= 关键时刻失去耐心和冷静，过早行动。',
+   expEn:'"沉不住气" means losing composure too early and acting impatiently.'},
+  {q:'成绩终于出来了，你通过了！一直很紧张的你，终于___。',
+   opts:['上心','松了一口气','心里有底','头大'],ans:1,
+   expCn:'"松了一口气"= 紧张解除，终于放松下来。',
+   expEn:'"松了一口气" means letting out a sigh of relief after pressure is gone.'},
+  {q:'学语言最重要的是找到正确方法。方法错了，就会浪费很多时间——我们说你___。',
+   opts:['走弯路','吃苦','沉不住气','上心'],ans:0,
+   expCn:'"走弯路"= 用错方法，绕远路，浪费时间精力。',
+   expEn:'"走弯路" means taking avoidable detours due to inefficient methods.'},
+  {q:'那件衣服把荧光绿和橙色搭配在一起，看了让人很不舒服，感觉很刺激。我们说它___。',
+   opts:['冷冰冰','辣眼睛','头大','眼红'],ans:1,
+   expCn:'"辣眼睛"= 视觉污染，看了让人不舒服。',
+   expEn:'"辣眼睛" means something is such an eyesore that it hurts to look at.'},
+  {q:'老板很___这位员工的沟通能力，决定让他负责最重要的客户关系。',
+   opts:['上心','看重','心疼','吃苦'],ans:1,
+   expCn:'"看重"= 认为某人或某事很有价值、很重要。',
+   expEn:'"看重" means to value someone or something highly.'},
+  {q:'这个小孩见到大人就叫"叔叔好""阿姨好"，还经常夸别人的菜做得好吃。大家都说他___。',
+   opts:['嘴甜','上心','没心没肺','耳根子软'],ans:0,
+   expCn:'"嘴甜"= 说话好听，会夸人，讨人喜欢。',
+   expEn:'"嘴甜" means speaking in a sweet, charming, and socially pleasing way.'},
+  {q:'他被老板当众批评，明明没有犯错。他心里极度不平，实在___。',
+   opts:['憋屈','沉不住气','咽不下这口气','心寒'],ans:2,
+   expCn:'"咽不下这口气"= 受侮辱或不公后，愤怒难平。',
+   expEn:'"咽不下这口气" means being unable to swallow an insult or injustice.'},
+];
+
+/* ═══════════════════════════════════════════
+   STATE & UTILS
+═══════════════════════════════════════════ */
+const state = {
+  search: '', cat: 'all', scene: 'all', showEn: true, practice: false,
+  fcIdx: 0, fcFlipped: false, fcKnown: new Set(),
+  qzIdx: 0, qzScore: 0, qzAnswered: false,
+};
+
+const $ = id => document.getElementById(id);
+const domainMap = {};
+DOMAINS.forEach(d => domainMap[d.id] = d);
+
+function stripKw(text='') {
+  return text.replace(/<\/?kw>/g,'');
+}
+
+function toExamplePinyin(text='') {
+  const clean = stripKw(text);
+  if (window.pinyinPro?.pinyin) {
+    const clauses = clean.split(/[，。！？；：、“”‘’（）《》【】…—,.!?;:]+/).filter(Boolean);
+    return clauses.map(c => window.pinyinPro.pinyin(c.trim(), { toneType: 'symbol' })).join(' / ');
+  }
+  return '';
+}
+
+function speak(text, lang='zh-CN') {
+  if (!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = lang; u.rate = 0.9;
+  const v = window.speechSynthesis.getVoices().find(v => v.lang.startsWith(lang.slice(0,2)));
+  if (v) u.voice = v;
+  window.speechSynthesis.speak(u);
+}
+
+/* ═══════════════════════════════════════════
+   RENDER EXPRESSIONS
+═══════════════════════════════════════════ */
+function filteredExprs() {
+  const key = state.search.trim().toLowerCase();
+  return EXPR.filter(x => {
+    const catOk = state.cat === 'all' || x.cat === state.cat;
+    if (!key) return catOk;
+    const bag = [x.word, x.pinyin, x.meaning, x.story, ...x.examples.map(e=>e.zh+e.en), x.cnMeaning, x.enTrap].join(' ').toLowerCase();
+    return catOk && bag.includes(key);
+  });
+}
+
+function renderExpressions() {
+  const container = $('expressions');
+  const items = filteredExprs();
+  $('noResults').style.display = items.length ? 'none' : 'block';
+
+  if (items.length === 0) { container.innerHTML = ''; return; }
+
+  // Group by domain (preserving domain order)
+  const grouped = {};
+  DOMAINS.forEach(d => grouped[d.id] = []);
+  items.forEach(x => grouped[x.cat]?.push(x));
+
+  let html = '';
+  DOMAINS.forEach(dom => {
+    if (!grouped[dom.id].length) return;
+    html += `
+    <div class="domain-section" id="dom-${dom.id}">
+      <div class="domain-hd">
+        <div class="domain-icon" style="background:${dom.light}">${dom.icon}</div>
+        <div>
+          <h2 style="color:${dom.color}">${dom.name}</h2>
+          <p>${dom.sub}</p>
+        </div>
+      </div>
+      <div class="cards-grid ${state.showEn ? '' : 'en-hidden'} ${state.practice ? 'practice-on' : ''}">
+        ${grouped[dom.id].map(x => cardHTML(x, dom)).join('')}
+      </div>
+    </div>`;
+  });
+  container.innerHTML = html;
+  // Stagger card entrance animations
+  container.querySelectorAll('.card').forEach((el, i) => {
+    el.style.animationDelay = `${i * 0.035}s`;
+  });
+  bindCardEvents();
+}
+
+function wordSize(w) {
+  const n = w.length;
+  return n <= 2 ? '52px' : n <= 3 ? '44px' : n <= 4 ? '36px' : n <= 5 ? '28px' : '22px';
+}
+
+function cardHTML(x, dom) {
+  const firstEx = x.examples[0];
+  const moreExamples = x.examples.slice(1).map((e,i) => `
+    <div class="ex-item collapsed-extra" data-more-ex="${x.id}">
+      <div class="ex-dot">${i+2}</div>
+      <div>
+        <div class="ex-zh">${e.zh.replace(/<kw>/g,`<span class="kw">`).replace(/<\/kw>/g,'</span>')}</div>
+        <div class="ex-py">${toExamplePinyin(e.zh)} <button class="tts-inline" data-speak-text="${stripKw(e.zh)}" title="朗读例句" aria-label="朗读例句">🔊</button></div>
+        <div class="ex-en">${e.en}</div>
+      </div>
+    </div>`).join('');
+
+  return `
+  <article class="card" data-id="${x.id}" style="--cc:${dom.color};--ccl:${dom.light}">
+    <div class="card-accent"></div>
+    <div class="card-body">
+      <div class="card-top-row">
+        <span class="card-domain-tag">${dom.name}</span>
+        <span class="card-num">${String(x.id).padStart(2,'0')}</span>
+      </div>
+      <div class="word-row">
+        <div class="word-info">
+          <div class="word" style="font-size:${wordSize(x.word)}">${x.word}</div>
+          <div class="pinyin">${x.pinyin} <button class="tts-inline" data-speak="${x.word}" title="朗读词语" aria-label="朗读词语">🔊</button></div>
+          <div class="literal"><span class="section-label">字面 / Literal</span>"${x.literal}"</div>
+        </div>
+      </div>
+      <div class="meaning-blk">
+        <div class="meaning-cn"><span class="section-label">含义 / Meaning</span>${x.meaning}</div>
+        <div class="meaning-en"><strong>English:</strong> ${MEANING_EN[x.id] || ''}</div>
+      </div>
+      <div class="story"><div class="story-lbl">场景 / Context</div>${x.story}<div class="story-en">${STORY_EN[x.id] || ''}</div></div>
+      <div class="examples">
+        <div class="ex-lbl">例句 / Examples</div>
+        <div class="ex-item">
+          <div class="ex-dot">1</div>
+          <div>
+            <div class="ex-zh">${firstEx.zh.replace(/<kw>/g,`<span class="kw">`).replace(/<\/kw>/g,'</span>')}</div>
+            <div class="ex-py">${toExamplePinyin(firstEx.zh)} <button class="tts-inline" data-speak-text="${stripKw(firstEx.zh)}" title="朗读例句" aria-label="朗读例句">🔊</button></div>
+            <div class="ex-en">${firstEx.en}</div>
+          </div>
+        </div>
+        ${moreExamples}
+        ${x.examples.length > 1 ? `<button class="more-ex-btn" data-expand="${x.id}">+ ${x.examples.length-1} 条更多例句</button>` : ''}
+      </div>
+      <div class="watchout">
+        <div class="cx-lbl">注意直译陷阱 / Don't translate word for word</div>
+        <div class="watch-cn">${WATCH_BI[x.id]?.cn || ''}</div>
+        <div class="watch-en">${WATCH_BI[x.id]?.en || ''}</div>
+      </div>
+      <button class="reveal-hint" onclick="this.closest('.card').classList.add('revealed')">
+        👁 点击查看详细说明
+      </button>
+      <div class="tip-row">
+        <span class="tip-icon">💡</span>
+        <span>${x.tip}<span class="tip-text-en">${TIP_EN[x.id] || ''}</span></span>
+      </div>
+    </div>
+  </article>`;
+}
+
+function bindCardEvents() {
+  document.querySelectorAll('[data-speak]').forEach(btn => {
+    btn.onclick = e => { e.stopPropagation(); speak(btn.dataset.speak); };
+  });
+  document.querySelectorAll('[data-speak-text]').forEach(btn => {
+    btn.onclick = e => { e.stopPropagation(); speak(btn.dataset.speakText); };
+  });
+  document.querySelectorAll('[data-expand]').forEach(btn => {
+    btn.onclick = e => {
+      e.stopPropagation();
+      const id = btn.dataset.expand;
+      const extras = document.querySelectorAll(`[data-more-ex="${id}"]`);
+      const expanded = btn.dataset.open === 'true';
+      extras.forEach(el => el.style.display = expanded ? 'none' : 'flex');
+      btn.dataset.open = expanded ? 'false' : 'true';
+      btn.textContent = expanded ? `+ ${extras.length} 条更多例句` : '收起例句';
+    };
+  });
+}
+
+/* ═══════════════════════════════════════════
+   FLASHCARD
+═══════════════════════════════════════════ */
+function practiceExprs() {
+  return state.cat === 'all' ? EXPR : EXPR.filter(x => x.cat === state.cat);
+}
+
+function syncPracticeNote() {
+  const set = practiceExprs();
+  const note = $('practiceSceneNote');
+  if (note) note.textContent = `当前练习 / Practice set: ${set.length} 个表达 · ${set.length} items`; 
+}
+
+function fcRender() {
+  const set = practiceExprs();
+  if (state.fcIdx >= set.length) state.fcIdx = 0;
+  const x = set[state.fcIdx];
+  const dom = domainMap[x.cat];
+  $('fcCounter').textContent = `${state.fcIdx+1} / ${set.length} · 已掌握 ${state.fcKnown.size} 个 / Known ${state.fcKnown.size}`;
+  $('fcScene').classList.remove('flipped');
+  state.fcFlipped = false;
+  $('fcCat').textContent = dom.name;
+  $('fcCat').style.color = dom.color;
+  $('fcWord').textContent = x.word;
+  $('fcPinyin').textContent = x.pinyin;
+  $('fcLiteral').textContent = '"' + x.literal + '"';
+  const ex = x.examples[0];
+  $('fcExZh').textContent = stripKw(ex.zh);
+  $('fcExPy').textContent = toExamplePinyin(ex.zh);
+  $('fcExEn').textContent = ex.en;
+  $('fcMeaning').innerHTML = `<strong>Real meaning / 真实含义：</strong> ${x.meaning}<span class="fc-meaning-en"><strong>English:</strong> ${MEANING_EN[x.id] || ''}</span>`;
+  $('fcContrast').innerHTML = '';
+  const kb = $('fcKnown');
+  kb.classList.toggle('marked', state.fcKnown.has(x.id));
+  kb.textContent = state.fcKnown.has(x.id) ? '已掌握 ✓' : '我会了 ✓';
+}
+
+$('fcScene').onclick = () => {
+  state.fcFlipped = !state.fcFlipped;
+  $('fcScene').classList.toggle('flipped', state.fcFlipped);
+};
+$('fcPrev').onclick = () => { const set = practiceExprs(); state.fcIdx = (state.fcIdx - 1 + set.length) % set.length; fcRender(); };
+$('fcNext').onclick = () => { const set = practiceExprs(); state.fcIdx = (state.fcIdx + 1) % set.length; fcRender(); };
+$('fcKnown').onclick = () => {
+  const id = EXPR[state.fcIdx].id;
+  state.fcKnown.has(id) ? state.fcKnown.delete(id) : state.fcKnown.add(id);
+  fcRender();
+};
+
+/* ═══════════════════════════════════════════
+   QUIZ
+═══════════════════════════════════════════ */
+function practiceQuizSet() {
+  const set = QUIZ.filter(q => {
+    const correctWord = q.opts[q.ans];
+    const expr = EXPR.find(x => x.word === correctWord);
+    if (!expr) return true;
+    return state.cat === 'all' || expr.cat === state.cat;
+  });
+  return set.length ? set : QUIZ;
+}
+
+function qzRender() {
+  const set = practiceQuizSet();
+  if (state.qzIdx >= set.length) state.qzIdx = 0;
+  const q = set[state.qzIdx];
+  const pct = (state.qzIdx / set.length) * 100;
+  $('qzFill').style.width = pct + '%';
+  $('qzCounter').textContent = `第 ${state.qzIdx+1} 题 / 共 ${set.length} 题 · Question ${state.qzIdx+1} of ${set.length}`;
+  $('qzText').innerHTML = q.q.replace(/___/g,'<em>___</em>');
+  $('qzOpts').innerHTML = q.opts.map((o,i) => {
+    const py = window.pinyinPro?.pinyin ? window.pinyinPro.pinyin(o, { toneType: 'symbol' }) : '';
+    return `<button class="qz-opt" data-idx="${i}"><div class="qz-opt-word">${o}</div><div class="qz-opt-py">${py}</div></button>`;
+  }).join('');
+  $('qzFeedback').className = 'qz-feedback';
+  $('qzFeedback').textContent = '';
+  $('qzNext').className = 'qz-next';
+  state.qzAnswered = false;
+
+  document.querySelectorAll('.qz-opt').forEach(btn => {
+    btn.onclick = () => {
+      if (state.qzAnswered) return;
+      state.qzAnswered = true;
+      const chosen = +btn.dataset.idx;
+      const correct = chosen === q.ans;
+      if (correct) state.qzScore++;
+      document.querySelectorAll('.qz-opt').forEach((b,i) => {
+        b.disabled = true;
+        if (i === q.ans) b.classList.add('correct');
+        else if (i === chosen && !correct) b.classList.add('wrong');
+      });
+      const fb = $('qzFeedback');
+      fb.innerHTML = (correct ? '✅ 正确！' : `❌ 正确答案是：${q.opts[q.ans]}`)
+        + `<br><strong>中文：</strong>${q.expCn}<br><strong>English:</strong> ${q.expEn}`;
+      fb.className = 'qz-feedback show ' + (correct ? 'ok' : 'fail');
+      $('qzNext').className = 'qz-next show';
+    };
+  });
+}
+
+$('qzNext').onclick = () => {
+  state.qzIdx++;
+  const set = practiceQuizSet();
+  if (state.qzIdx >= set.length) {
+    $('quizBody').style.display = 'none';
+    const result = $('qzResult');
+    result.className = 'qz-result show';
+    const pct = Math.round((state.qzScore / set.length) * 100);
+    $('qzScore').textContent = `🏆 ${state.qzScore} / ${set.length}`;
+    const msgs = [
+      [100,'太棒了！你已经能把感觉和表达配起来了。 / Great job!'],
+      [80, '做得很好！再看一遍几组容易直译的表达。 / Almost there!'],
+      [60, '不错的开始！重点再看“字面意思”和“真实含义”的差别。'],
+      [0,  '继续加油！这些表达最怕直译。多看情境，再试一次。'],
+    ];
+    $('qzMsg').textContent = (msgs.find(([t]) => pct >= t) || msgs.at(-1))[1];
+    $('qzFill').style.width = '100%';
+  } else {
+    qzRender();
+  }
+};
+
+$('qzRestart').onclick = () => {
+  state.qzIdx = 0; state.qzScore = 0; state.qzAnswered = false;
+  $('quizBody').style.display = '';
+  $('qzResult').className = 'qz-result';
+  qzRender();
+};
+
+/* ═══════════════════════════════════════════
+   TABS
+═══════════════════════════════════════════ */
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.onclick = () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    $(`${tab.dataset.tab}Pane`).classList.add('active');
+  };
+});
+
+/* ═══════════════════════════════════════════
+   NAV CONTROLS
+═══════════════════════════════════════════ */
+$('searchInput').oninput = e => { state.search = e.target.value; renderExpressions(); syncPracticeNote(); state.fcIdx = 0; state.qzIdx = 0; state.qzScore = 0; fcRender(); qzRender(); };
+
+document.querySelectorAll('.cat-pill').forEach(pill => {
+  pill.onclick = () => {
+    state.cat = pill.dataset.cat;
+    document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    renderExpressions();
+    syncPracticeNote();
+    state.fcIdx = 0;
+    state.qzIdx = 0;
+    state.qzScore = 0;
+    fcRender();
+    qzRender();
+  };
+});
+
+$('toggleEn').onclick = () => {
+  state.showEn = !state.showEn;
+  $('toggleEn').classList.toggle('on', state.showEn);
+  $('toggleEn').textContent = state.showEn ? '英文 / English' : '中文 only';
+  renderExpressions();
+};
+
+$('togglePractice').onclick = () => {
+  state.practice = !state.practice;
+  $('togglePractice').classList.toggle('on', state.practice);
+  $('togglePractice').textContent = state.practice ? '专注中 ✦' : '专注模式 / Focus';
+  renderExpressions();
+};
+
+/* ═══════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════ */
+window.speechSynthesis?.getVoices(); // warm up
+renderExpressions();
+syncPracticeNote();
+fcRender();
+qzRender();
+</script>
+</body>
+</html>
